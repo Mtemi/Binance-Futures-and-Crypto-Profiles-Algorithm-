@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>{{asset.title}}</h1>
+  <small>Written by {{asset.author}} on {{asset.create_date}}</small>
+  <hr>
+  <div>
+    {{asset.symbol_id | safe}}
+  </div>
+  <div>
+    {{asset.symbolid | safe}}
+  </div>
+  <div>
+    {{asset.size | safe}}
+  </div>
+  <div>
+    {{asset.side | safe}}
+  </div>
+{% endblock %}

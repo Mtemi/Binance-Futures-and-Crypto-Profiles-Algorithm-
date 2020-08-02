@@ -1,0 +1,11 @@
+Create an environment(Each of the statements is a sentence)
+
+mkdir myproject
+cd myproject
+python3 -m venv env
+
+env\Scripts\activate
+
+For pip install mysqlclient to work;,
+ you have to install mysql connector :  
+https://dev.mysql.com/get/Downloads/Connector-C/mysql-connector-c-6.0.2-win32.msi 

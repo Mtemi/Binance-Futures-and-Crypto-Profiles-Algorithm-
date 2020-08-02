@@ -1,0 +1,117 @@
+How To Install and Use Tmux on Linux
+
+sudo apt-get install tmux 
+tmux # Type this to enter a new tmux session
+tmux detach # To run this you have to open a new ssh terminal via Putty: 
+tmux attach # To return to the old tmux session started via 'tmux' command 
+
+Please Try the following steps:
+
+pip freeze | findstr loguru #helps know version of python library installed 
+
+
+https://dev.mysql.com/downloads/connector/python/
+
+c:\mysql\bin>mysqld --install
+c:\mysql\bin>mysqld --initialize
+then press "Windows key + R" write "services.msc", run as admin
+
+start MySQL service.
+
+To Stop MySQL Service : 
+
+net stop mysql
+
+To Start The Service:
+Reading Files In Ubuntu :
+
+An alternative is vim.
+
+vim RESULTS.txt
+
+Once you opened a file with vim you can insert text by typing i, for instance. 
+If you want to save your file use :w (write) or :q (quit) or :wq (for write and quit) 
+or :q! (quit and do not save). Sometimes you need to hit the ESC key to be able to type the commands.
+
+Vim requires some learning, but is widely used and it is very versatile.
+--------------------------------------------------------------------------------------------
+DELETE TABLES DATA ONLY
+
+DELETE FROM orders;
+
+DELETE WHOLE TABLE: 
+
+DROP TABLE Orders;
+
+
+-------------------------------------------------------------------------------
+net start mysql
+
+mysqldump -u root -p -P3307 database_backup> C:/Users/ICT/Documents/projects/tradermexGUI/Binance/python-flask-mysql-template-master/database_backup
+
+Reset Password Command 
+
+mysqld --init-file=C:\Users\ICT\Documents\projects\tradermexGUI\Binance\mysql-init.txt
+It Worked then Started MYSQL Service again: 
+and with this command I was able to Login: 
+mysql -uroot -proot
+mysql -ubina_bota -pBot@#230101
+------------------------------------------------------------------------------------
+SHOW COLUMNS FROM orders;
+INSERT INTO previous_orders (computations_type,total)VALUES (buy,3765.69);
+
+------------------------------------------------------------------------------
+
+SELECT * FROM exchanges WHERE symbol LIKE 'XBT%';
+
+Change Table Encoding on Linux Server 
+
+ALTER TABLE orders CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE logtest DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE logtest CHANGE title title VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+-----------------------------------------------------------------------------------
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+-------------------------------------------------------------------------------------
+Database Name:  binance_profiles
+
+Creating User : 'bina_bota'@'localhost' 
+
+CREATE USER 'bina_bota'@'localhost' IDENTIFIED BY 'Bot@#230101';
+Create table Orders
+
+GRANT ALL PRIVILEGES ON binance_profiles.* TO 'bina_bota'@'localhost' identified by 'Bot@#230101';
+GRANT ALL PRIVILEGES ON binance_profiles.* TO 'bina_bota'@'localhost';
+
+GRANT ALL PRIVILEGES ON binance_profiles.* TO 'bina_bota'@'localhost' WITH GRANT OPTION;
+grant all privileges on binance_profiles.* to 'bina_bota'@'localhost' identified by 'Bot@#230101';
+CREATE TABLE Laptop ( Id int(11) NOT NULL,Name varchar(250) NOT NULL,Price float NOT NULL,Purchase_date Date NOT NULL,PRIMARY KEY (Id));
+INSERT INTO Laptop (Id, Name, Price, Purchase_date) VALUES (10, 'Lenovo ThinkPad P71', 6459, '2019-08-14');
+
+
+CREATE TABLE orders(id MEDIUMINT NOT NULL AUTO_INCREMENT, symbol VARCHAR(20), symbolid VARCHAR(20),size FLOAT(20,0), side VARCHAR(20), price FLOAT(20,0), usdvalue FLOAT(20,0), PRIMARY KEY (id));
+
+
+/mysql-connector-python-8.0.19/examples 
+
+
+
+
+
+
+

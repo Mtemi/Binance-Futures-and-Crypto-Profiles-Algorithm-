@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>My Assets</h1>
+  <ul class="list-group">
+    {% for asset in assets %}
+      <li class="list-group-item"><a href="{{ url_for('find_asset', symbol_id=asset.symbol_id) }}">{{asset}}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

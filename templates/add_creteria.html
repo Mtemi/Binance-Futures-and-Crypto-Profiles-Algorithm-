@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Add Assets</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{ render_field(form.strategy_level, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.low_btc_price, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.high_btc_price, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.low_percentage_price, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.high_percentage_price, class_="form-control") }}
+    </div>
+    <p><input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+{% endblock %}

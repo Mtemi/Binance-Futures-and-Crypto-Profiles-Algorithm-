@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Assets <small> Welcome {{session.username}}</small></h1>
+  <a class="btn btn-success" href="/add_asset"> Add Asset</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>Coin/Exchange</th>
+      <th>Size</th>
+      <th>Side</th>
+      <th>Price</th>
+      <th>USD Value</th>
+    </tr>
+    {% for asset in assets %}
+      <tr>
+        <td>{{asset.symbol_id}}</td>
+        <td>{{asset.size}}</td>
+        <td>{{asset.side}}</td>
+        <td>{{asset.price}}</td>
+        <td>{{asset.usdvalue}}</td>
+        <td><a href="edit_asset/{{asset.symbol_id}}" class="btn btn-default pull-right">Edit</a></td>
+        <td>
+          <form action="{{url_for('delete_asset', symbol_id=asset.symbol_id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>{{creteria.strategy_level}}</h1>
+  <small>Written by {{creteria.author}} on {{creteria.create_date}}</small>
+  <hr>
+  <div>
+    {{creteria.strategy_level | safe}}
+  </div>
+  <div>
+    {{creteria.low_btc_price | safe}}
+  </div>
+  <div>
+    {{creteria.high_btc_price | safe}}
+  </div>
+  <div>
+    {{creteria.low_percentage_price | safe}}
+  </div>
+  <div>
+    {{creteria.high_percentage_price   | safe}}
+  </div>
+{% endblock %}

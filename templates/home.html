@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+    <h1>Welcome to Crypto Profile Bot</h1>
+    <p class="lead">Get all your Crypto Profile in One Place | Add Assets held in other Crypto Profiles Manually, Except for Binance Assets which are Added Automatically By the Bot</p>
+    {% if session.logged_in == NULL %}
+      <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">Register</a>
+      <a href="{{ url_for('login') }}" class="btn btn-success btn-lg">Log in</a>
+    {% endif %}
+  </div>
+{% endblock %}

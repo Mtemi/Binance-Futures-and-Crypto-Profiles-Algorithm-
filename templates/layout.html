@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  </head>
+<body>
+
+    <nav class="navbar navbar-default ">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('index') }}"></a>
+        </div>
+
+        <div class="container">
+
+          <ul class="nav navbar-nav navbar-right">
+            {% if session.logged_in %}
+              <!-- Dropdown -->
+              <li><a href="#">BTC $ | {{ current_btc_price_value }} |</a></li>
+              <li><a href="{{ url_for('creteria_dashboard') }}">Strategy | {{ percentage_from_strategys }} %</a></li>
+              <li><a href="#">Adjust Sell By USD $ | {{ sell_difference_amount }} with: | {{ sell_difference }} %</a></li>
+              <li><a href="#">Adjust Buy By USD $ | {{ buy_difference_amount }} with: | {{ buy_difference }} %</a></li>
+            {% else %}
+            {% endif %}
+  
+          </ul>
+        </div><!--/.nav-collapse -->  
+
+        <div class="container">
+
+          <ul class="nav navbar-nav navbar-right">
+            {% if session.logged_in %}
+              <!-- Dropdown -->
+              <li><a href="#">Sells Total $ | {{ sellscurrenttotal }} |</a></li>
+              <li><a href="#"> % | {{ datasellsperc }} | </a></li>
+              <li><a href="#">Buys Total $ | {{ buytotal }} | </a></li>
+              <li><a href="#"> % | {{ adjustedbuytotalperc }} | </a></li>
+            {% else %}
+            {% endif %}
+  
+          </ul>
+        </div><!--/.nav-collapse -->  
+
+        <div id="navbar" class="dropdown">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About us</a></li>
+            <li><a href="{{ url_for('articles') }}">All Articles</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            {% if session.logged_in %}
+              <!-- Dropdown -->
+              <li><a href="{{ url_for('dashboard') }}">Dashboard </a></li>
+              <li><a href="{{ url_for('assets_dashboard') }}">Add Assets</a></li>
+              <li><a href="{{ url_for('creteria_dashboard') }}">Add Creteria</a></li>
+              <li><a href="{{ url_for('assets') }}">Assets</a></li>
+              <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+              <li><a href="{{ url_for('register') }}">Register</a></li>
+              <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+
+          </ul>
+        </div><!--/.nav-collapse -->   
+
+      </div>
+    </nav>
+
+    <div class="container">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        {% if error %}
+          <div class="alert alert-danger">{{error}}</div>
+        {% endif %}
+
+        {% if msg %}
+          <div class="alert alert-success">{{msg}}</div>
+        {% endif %}
+
+        {% block body %}{% endblock %}
+    </div>
+                                        
+
+
+</body>
+</html>

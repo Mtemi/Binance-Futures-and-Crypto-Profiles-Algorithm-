@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Strategy/Creteria <small> Welcome {{session.username}}</small></h1>
+  <a class="btn btn-success" href="/add_creteria"> Add Creteria/Stratgy level</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>Level</th>
+      <th>Low BTC $</th>
+      <th>High BTC $</th>
+      <th>Low %</th>
+      <th>High %</th>
+      <th>Strategy %</th>
+      <th>Change / Edit</th>
+      <th>Drop / Delete</th>
+    </tr>
+    {% for creteria in creteria %}
+      <tr>
+        <td>{{creteria.strategy_level}}</td>
+        <td>{{creteria.low_btc_price}}</td>
+        <td>{{creteria.high_btc_price}}</td>
+        <td>{{creteria.low_percentage_price}}</td>
+        <td>{{creteria.high_percentage_price}}</td>
+        <td>{{creteria.percentage}}</td>
+        <td><a href="edit_creteria/{{creteria.strategy_level}}" class="btn btn-default pull-right">Edit</a></td>
+        <td>
+          <form action="{{url_for('delete_creteria', strategy_level=creteria.strategy_level)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
